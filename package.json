@@ -1,0 +1,8 @@
+{
+  "name": "opencode-session-switcher",
+  "version": "0.1.0",
+  "description": "OpenCode TUI session switcher sidebar plugin",
+  "type": "module",
+  "main": "index.tsx",
+  "oc-plugin": ["tui"]
+}
