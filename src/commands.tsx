@@ -8,9 +8,9 @@ export function registerCommands(
   refreshSessions: () => Promise<void>
 ) {
   const command = {
-    title: "Session Status Footer: Refresh",
-    value: "session-status-footer-refresh",
-    description: "Refresh session footer status",
+    title: "Session Status: Refresh",
+    value: "session-status-refresh",
+    description: "Refresh session status",
     run: () => refreshSessions(),
   };
 
@@ -21,9 +21,9 @@ export function registerCommands(
       commands: [
         {
           namespace: "palette",
-          name: "session.status.footer.refresh",
+          name: "session.status.refresh",
           title: command.title,
-          category: "Session Status Footer",
+          category: "Session Status",
           description: command.description,
           slashName: command.value,
           run: command.run,
@@ -39,7 +39,7 @@ export function registerCommands(
         title: command.title,
         value: command.value,
         description: command.description,
-        category: "Session Status Footer",
+        category: "Session Status",
         slash: { name: command.value },
         onSelect: command.run,
       },
@@ -47,7 +47,7 @@ export function registerCommands(
   }
 
   api.ui.toast({
-    message: "Session status footer commands are not supported by this TUI host",
+    message: "Session status commands are not supported by this TUI host",
     variant: "warning",
   });
 }

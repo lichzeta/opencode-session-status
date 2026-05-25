@@ -18,7 +18,7 @@ export async function fetchSessions(api: TuiPluginApi): Promise<Session[]> {
       }))
       .filter((s: any) => !isSubagentSession(s));
   } catch (err) {
-    console.error("[session-status-footer] Failed to fetch sessions:", err);
+    console.error("[session-status] Failed to fetch sessions:", err);
     return [];
   }
 }

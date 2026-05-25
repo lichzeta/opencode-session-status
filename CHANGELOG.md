@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.0
+
+- Rename the project to `opencode-session-status`.
+- Update package metadata and install paths for the new status-focused name.
+- Rename the command prefix to `Session Status`.
+
 ## 0.2.0
 
 - Reposition the project as a compact session status footer.

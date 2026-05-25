@@ -6,7 +6,7 @@ import { fetchSessions } from "./sessionApi";
 import { registerCommands } from "./commands.tsx";
 import { Sidebar } from "./components/Sidebar";
 
-export const id = "opencode-session-status-footer";
+export const id = "opencode-session-status";
 
 export async function tui(api) {
   const route = api.route?.current;
