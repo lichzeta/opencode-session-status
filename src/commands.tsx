@@ -83,7 +83,12 @@ export function registerCommands(
 }
 
 async function handleSwitch(api: TuiPluginApi, state: SidebarState) {
-  const sessions = await fetchSessions(api);
+  const allSessions = await fetchSessions(api);
+  const query = state.searchQuery().toLowerCase();
+  const sessions = query
+    ? allSessions.filter((session) => session.title.toLowerCase().includes(query))
+    : allSessions;
+
   if (sessions.length === 0) {
     api.ui.toast({ message: "No sessions available", variant: "warning" });
     return;
@@ -167,6 +172,7 @@ async function handleFilter(api: TuiPluginApi, state: SidebarState) {
     <api.ui.DialogPrompt
       title="Filter Sessions"
       placeholder="Search..."
+      value={state.searchQuery()}
       onConfirm={(value: string) => {
         api.ui.dialog.clear();
         state.setSearchQuery(value);
