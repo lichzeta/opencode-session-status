@@ -1,7 +1,7 @@
 {
-  "name": "opencode-session-switcher",
-  "version": "0.1.1",
-  "description": "OpenCode TUI session switcher sidebar plugin",
+  "name": "opencode-session-status-footer",
+  "version": "0.2.0",
+  "description": "Compact OpenCode TUI session status footer plugin",
   "type": "module",
   "main": "index.tsx",
   "oc-plugin": ["tui"]

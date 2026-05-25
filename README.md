@@ -1,39 +1,39 @@
-# OpenCode Session Switcher
+# OpenCode Session Status Footer
 
-A small OpenCode TUI plugin that adds a native sidebar session switcher.
+A small OpenCode TUI plugin that shows compact session status in the sidebar footer.
 
-It is intended for users who want quick session switching inside OpenCode without running a separate tmux sidebar or companion process.
+This plugin does not replace OpenCode's built-in `/session` flow. It only keeps the current session title and non-subagent session count visible in the sidebar footer without taking over the main sidebar area used by Todo, files, MCP, LSP, and other built-in panels.
 
 ## 中文说明
 
-OpenCode Session Switcher 是一个 OpenCode TUI 插件，用来在右侧 sidebar footer 中显示当前 session，并通过命令面板切换 session。
+OpenCode Session Status Footer 是一个轻量 OpenCode TUI 插件，用来在右侧 sidebar footer 中显示当前 session 状态。
 
-这个插件的目标很简单：不依赖 tmux、不需要额外启动进程，直接随 OpenCode TUI 加载，提供一个轻量的 session 切换器。
-
-它不会尝试做消息轮次跳转或主对话区滚动，因为当前 OpenCode TUI 插件 API 没有暴露可靠的 `scrollToMessage` / `jumpToTurn` 能力。
+它不替代 OpenCode 内置的 `/session` 功能，也不占用右侧 sidebar 主体区域。右侧主体区域仍然留给 Todo list、Files、MCP、LSP 等内置面板。
 
 ## Features
 
 - Native `sidebar_footer` integration in OpenCode TUI.
-- Shows the current session and session count in a compact sidebar footer.
-- Filters out detected subagent sessions.
-- Adds command palette actions for session management.
-- Does not require tmux.
+- Shows the current session title in one line.
+- Shows the non-subagent session count in one line.
+- Filters detected subagent sessions from the count.
+- Adds a command palette action to refresh the footer status.
+- Does not require tmux or a companion process.
 
 ## 功能
 
 - 原生集成 OpenCode TUI 的 `sidebar_footer`。
-- 在右侧 sidebar footer 用一到两行显示当前 session 和 session 数量。
+- 用一行显示当前 session 标题。
+- 用一行显示非 subagent session 数量。
 - 自动过滤检测到的 subagent session。
-- 通过命令面板切换、过滤、重命名、删除和刷新 session。
-- 不需要 tmux。
+- 提供一个命令面板动作刷新 footer 状态。
+- 不需要 tmux，也不需要额外启动进程。
 
 ## Install
 
 Clone this repository into your OpenCode plugins directory:
 
 ```sh
-git clone https://github.com/lichzeta/opencode-session-switcher.git ~/.config/opencode/plugins/opencode-session-switcher
+git clone https://github.com/lichzeta/opencode-session-switcher.git ~/.config/opencode/plugins/opencode-session-status-footer
 ```
 
 Then add it to your OpenCode TUI config:
@@ -41,15 +41,17 @@ Then add it to your OpenCode TUI config:
 ```json
 {
   "plugin": [
-    "./plugins/opencode-session-switcher"
+    "./plugins/opencode-session-status-footer"
   ]
 }
 ```
 
+If you clone into a different directory name, use that path in the `plugin` entry.
+
 On Windows, use your OpenCode config directory instead. For example:
 
 ```text
-D:\opencode\.config\opencode\plugins\opencode-session-switcher
+D:\opencode\.config\opencode\plugins\opencode-session-status-footer
 ```
 
 ## 安装
@@ -57,7 +59,7 @@ D:\opencode\.config\opencode\plugins\opencode-session-switcher
 把仓库克隆到 OpenCode 插件目录：
 
 ```sh
-git clone https://github.com/lichzeta/opencode-session-switcher.git ~/.config/opencode/plugins/opencode-session-switcher
+git clone https://github.com/lichzeta/opencode-session-switcher.git ~/.config/opencode/plugins/opencode-session-status-footer
 ```
 
 然后在 OpenCode TUI 配置中启用：
@@ -65,48 +67,46 @@ git clone https://github.com/lichzeta/opencode-session-switcher.git ~/.config/op
 ```json
 {
   "plugin": [
-    "./plugins/opencode-session-switcher"
+    "./plugins/opencode-session-status-footer"
   ]
 }
 ```
 
+如果你使用了不同的本地目录名，请在 `plugin` 配置中使用对应路径。
+
 Windows 用户请使用自己的 OpenCode 配置目录，例如：
 
 ```text
-D:\opencode\.config\opencode\plugins\opencode-session-switcher
+D:\opencode\.config\opencode\plugins\opencode-session-status-footer
 ```
 
 ## Commands
 
-Search for `Session Switcher:` in the OpenCode command palette.
+Search for `Session Status Footer:` in the OpenCode command palette.
 
-- `Session Switcher: Show Sessions`
-- `Session Switcher: Switch Session`
-- `Session Switcher: Rename Session`
-- `Session Switcher: Delete Session`
-- `Session Switcher: Filter Sessions`
-- `Session Switcher: Refresh`
+- `Session Status Footer: Refresh`
+
+Use OpenCode's built-in `/session` command or session picker for creating, switching, renaming, and deleting sessions.
 
 ## 命令
 
-在 OpenCode 命令面板中搜索 `Session Switcher:`。
+在 OpenCode 命令面板中搜索 `Session Status Footer:`。
 
-- `Session Switcher: Show Sessions`
-- `Session Switcher: Switch Session`
-- `Session Switcher: Rename Session`
-- `Session Switcher: Delete Session`
-- `Session Switcher: Filter Sessions`
-- `Session Switcher: Refresh`
+- `Session Status Footer: Refresh`
+
+创建、切换、重命名和删除 session 请继续使用 OpenCode 内置的 `/session` 或 session picker。
 
 ## Known Limitations
 
-- The sidebar footer is display-only. Use the command palette to switch sessions.
+- The footer is display-only.
+- This plugin does not provide session switching.
 - This plugin does not jump or scroll the main conversation view to a message or turn.
 - Subagent session filtering is heuristic. It checks common parent-session fields and title/agent markers.
 
 ## 已知限制
 
-- Sidebar footer 目前只用于展示。请使用命令面板切换 session。
+- Footer 只用于展示。
+- 插件不提供 session 切换功能。
 - 插件不能让主对话区跳转或滚动到某条消息/某个轮次。
 - Subagent session 过滤是启发式的，会检查常见的 parent session 字段、agent 标记和标题标记。
 
@@ -115,7 +115,7 @@ Search for `Session Switcher:` in the OpenCode command palette.
 The plugin is loaded directly from TypeScript/TSX by OpenCode.
 
 ```text
-opencode-session-switcher/
+opencode-session-status-footer/
 |-- package.json
 |-- index.tsx
 `-- src/

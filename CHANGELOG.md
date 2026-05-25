@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0
+
+- Reposition the project as a compact session status footer.
+- Rename the package and plugin id to `opencode-session-status-footer`.
+- Remove session switching, rename, delete, and filter commands that overlap with OpenCode's built-in session picker.
+- Keep a single refresh command.
+
 ## 0.1.1
 
 - Move the sidebar display from `sidebar_content` to `sidebar_footer` so OpenCode's built-in todo list can keep using the main sidebar area.

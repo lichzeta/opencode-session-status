@@ -11,7 +11,6 @@ export interface Session {
 
 export function createSidebarState(initialSessionId: string) {
   const [currentSessionId, setCurrentSessionId] = createLocalSignal(initialSessionId);
-  const [searchQuery, setSearchQuery] = createLocalSignal("");
   const [sessions, setSessions] = createLocalSignal<Session[]>([]);
   const [sessionsStatus, setSessionsStatus] = createLocalSignal<Status>("idle");
   const [sessionsError, setSessionsError] = createLocalSignal<string>("");
@@ -20,8 +19,6 @@ export function createSidebarState(initialSessionId: string) {
   return {
     currentSessionId,
     setCurrentSessionId,
-    searchQuery,
-    setSearchQuery,
     sessions,
     setSessions,
     sessionsStatus,

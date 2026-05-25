@@ -6,7 +6,7 @@ import { fetchSessions } from "./sessionApi";
 import { registerCommands } from "./commands.tsx";
 import { Sidebar } from "./components/Sidebar";
 
-export const id = "opencode-session-switcher";
+export const id = "opencode-session-status-footer";
 
 export async function tui(api) {
   const route = api.route?.current;
@@ -48,7 +48,7 @@ export async function tui(api) {
     },
   });
 
-  registerCommands(api, state, refreshSessions);
+  registerCommands(api, refreshSessions);
 
   await refreshSessions();
 
