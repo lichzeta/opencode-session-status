@@ -15,7 +15,7 @@ OpenCode Session Switcher 是一个 OpenCode TUI 插件，用来在右侧 sideba
 ## Features
 
 - Native `sidebar_footer` integration in OpenCode TUI.
-- Shows the current session and session count in the sidebar footer.
+- Shows the current session and session count in a compact sidebar footer.
 - Filters out detected subagent sessions.
 - Adds command palette actions for session management.
 - Does not require tmux.
@@ -23,7 +23,7 @@ OpenCode Session Switcher 是一个 OpenCode TUI 插件，用来在右侧 sideba
 ## 功能
 
 - 原生集成 OpenCode TUI 的 `sidebar_footer`。
-- 在右侧 sidebar footer 显示当前 session 和 session 数量。
+- 在右侧 sidebar footer 用一到两行显示当前 session 和 session 数量。
 - 自动过滤检测到的 subagent session。
 - 通过命令面板切换、过滤、重命名、删除和刷新 session。
 - 不需要 tmux。

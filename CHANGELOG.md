@@ -3,6 +3,7 @@
 ## 0.1.1
 
 - Move the sidebar display from `sidebar_content` to `sidebar_footer` so OpenCode's built-in todo list can keep using the main sidebar area.
+- Keep the footer display compact at one to two lines.
 - Keep session switching in the command palette.
 - Remove the unused sidebar session list component.
 
