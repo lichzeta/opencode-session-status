@@ -6,6 +6,7 @@
 - Rename the package and plugin id to `opencode-session-status-footer`.
 - Remove session switching, rename, delete, and filter commands that overlap with OpenCode's built-in session picker.
 - Keep a single refresh command.
+- Move status rendering from `sidebar_footer` to `sidebar_title` so it is less tied to optional sidebar panels.
 
 ## 0.1.1
 

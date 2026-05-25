@@ -1,29 +1,27 @@
-# OpenCode Session Status Footer
+# OpenCode Session Status
 
-A small OpenCode TUI plugin that shows compact session status in the sidebar footer.
+A small OpenCode TUI plugin that shows compact session status in the sidebar title area.
 
-This plugin does not replace OpenCode's built-in `/session` flow. It only keeps the current session title and non-subagent session count visible in the sidebar footer without taking over the main sidebar area used by Todo, files, MCP, LSP, and other built-in panels.
+This plugin does not replace OpenCode's built-in `/session` flow. It only keeps the current session title and non-subagent session count visible in the sidebar title area without taking over the main sidebar area used by Todo, files, MCP, LSP, and other built-in panels.
 
 ## 中文说明
 
-OpenCode Session Status Footer 是一个轻量 OpenCode TUI 插件，用来在右侧 sidebar footer 中显示当前 session 状态。
+OpenCode Session Status 是一个轻量 OpenCode TUI 插件，用来在右侧 sidebar title 区域显示当前 session 状态。
 
 它不替代 OpenCode 内置的 `/session` 功能，也不占用右侧 sidebar 主体区域。右侧主体区域仍然留给 Todo list、Files、MCP、LSP 等内置面板。
 
 ## Features
 
-- Native `sidebar_footer` integration in OpenCode TUI.
-- Shows the current session title in one line.
-- Shows the non-subagent session count in one line.
+- Native `sidebar_title` integration in OpenCode TUI.
+- Shows the current session title and non-subagent session count in one compact line.
 - Filters detected subagent sessions from the count.
 - Adds a command palette action to refresh the footer status.
 - Does not require tmux or a companion process.
 
 ## 功能
 
-- 原生集成 OpenCode TUI 的 `sidebar_footer`。
-- 用一行显示当前 session 标题。
-- 用一行显示非 subagent session 数量。
+- 原生集成 OpenCode TUI 的 `sidebar_title`。
+- 用一行显示当前 session 标题和非 subagent session 数量。
 - 自动过滤检测到的 subagent session。
 - 提供一个命令面板动作刷新 footer 状态。
 - 不需要 tmux，也不需要额外启动进程。
@@ -98,14 +96,14 @@ Use OpenCode's built-in `/session` command or session picker for creating, switc
 
 ## Known Limitations
 
-- The footer is display-only.
+- The title status is display-only.
 - This plugin does not provide session switching.
 - This plugin does not jump or scroll the main conversation view to a message or turn.
 - Subagent session filtering is heuristic. It checks common parent-session fields and title/agent markers.
 
 ## 已知限制
 
-- Footer 只用于展示。
+- Title 状态只用于展示。
 - 插件不提供 session 切换功能。
 - 插件不能让主对话区跳转或滚动到某条消息/某个轮次。
 - Subagent session 过滤是启发式的，会检查常见的 parent session 字段、agent 标记和标题标记。

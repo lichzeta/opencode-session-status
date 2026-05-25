@@ -12,9 +12,9 @@ export function Sidebar(props: SidebarProps) {
     props.state.sessions().find((session) => session.id === props.state.currentSessionId());
 
   return (
-    <box flexDirection="column" height="100%">
-      <text bold>{currentSession()?.title?.slice(0, 28) || "No session"}</text>
-      <text dimColor>{props.state.sessions().length} sessions</text>
+    <box flexDirection="row">
+      <text bold>{currentSession()?.title?.slice(0, 22) || "No session"}</text>
+      <text dimColor> ({props.state.sessions().length})</text>
     </box>
   );
 }

@@ -33,7 +33,7 @@ export async function tui(api) {
   api.slots.register({
     order: 170,
     slots: {
-      sidebar_footer: (_ctx, value) => {
+      sidebar_title: (_ctx, value) => {
         const sessionId = value?.session_id || state.currentSessionId();
 
         if (sessionId && sessionId !== state.currentSessionId()) {
